@@ -4,19 +4,18 @@ import endpr.Vehicle;
 
 public class Boat extends Vehicle {
     int length;
-    int usedyear;
+    int usedYear;
 
-    public Boat(int id, String brand, int length, int usedyear) {
-        super(id, brand);
+    public Boat(int id, String brand, boolean isAvailable, int price, int length, int usedYear) {
+        super(id, brand, isAvailable, price);
         this.length = length;
-        this.usedyear = usedyear;
+        this.usedYear = usedYear;
     }
 
+    @Override
     public void details() {
         super.details();
-        System.out.println("The length if the boat: " + length);
-        System.out.println("Used time(year): " + usedyear);
+        System.out.println("Boat Length: " + length + " meters");
+        System.out.println("Used for: " + usedYear + " years");
     }
-
-
 }

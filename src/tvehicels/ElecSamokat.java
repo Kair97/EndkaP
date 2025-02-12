@@ -3,19 +3,19 @@ package tvehicels;
 import endpr.Vehicle;
 
 public class ElecSamokat extends Vehicle {
-    int capacityofbattery;
-    int speed;
+    int capacityOfBattery;
+    int maxSpeed;
 
-    public ElecSamokat(int id, String brand, int capacityofbat, int speed) {
-        super(id, brand);
-        this.capacityofbattery = capacityofbat;
-        this.speed = speed;
+    public ElecSamokat(int id, String brand, boolean isAvailable, int price, int capacityOfBattery, int maxSpeed) {
+        super(id, brand, isAvailable, price); // Передаем данные в базовый класс
+        this.capacityOfBattery = capacityOfBattery;
+        this.maxSpeed = maxSpeed;
     }
 
+    @Override
     public void details() {
         super.details();
-        System.out.println("Capacity of the battery (Wh): " + capacityofbattery);
-        System.out.println("Max speed (km/h): " + speed);
+        System.out.println("Battery Capacity: " + capacityOfBattery + " Wh");
+        System.out.println("Max Speed: " + maxSpeed + " km/h");
     }
-
 }

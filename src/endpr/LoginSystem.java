@@ -23,7 +23,6 @@ public class LoginSystem {
             System.out.print("Enter Password: ");
             String inputPassword = scanner.nextLine();
 
-            // Prepare SQL query
             String sql = "SELECT * FROM users WHERE username = ? AND password = ?";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, inputUsername);
@@ -46,10 +45,6 @@ public class LoginSystem {
                 System.out.println("Invalid username or password. Try again.");
             }
 
-            // Close connections
-            rs.close();
-            pstmt.close();
-            conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -77,7 +72,6 @@ public class LoginSystem {
     }
 
 
-    // Simulating panels
     public static void openAdminPanel() {
         System.out.println("Welcome to Admin Panel!");
         panels.openAdminPanel();

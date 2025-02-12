@@ -18,11 +18,12 @@ public class RentalSystem {
         try (Connection con = DriverManager.getConnection(url, user, password);
              PreparedStatement pstmt = con.prepareStatement(sql)) {
 
-            pstmt.setInt(1, id);  // Use setInt instead of converting to String
+            pstmt.setInt(1, id);
             int rowsAffected = pstmt.executeUpdate();
 
             if (rowsAffected > 0) {
                 System.out.println("Vehicle removed successfully!");
+
             } else {
                 System.out.println("No vehicle found with ID: " + id);
             }
@@ -77,6 +78,13 @@ public class RentalSystem {
                     System.out.println("Available: " + (rs.getBoolean("isable") ? "Yes" : "No"));
                     System.out.println("-------");
 
+                    return new Vehicle(
+                            rs.getInt("id"),
+                            rs.getString("ttype"),
+                            rs.getString("brand"),
+                            rs.getInt("price"),
+                            rs.getBoolean("isable")
+                    );
                 }
             }
         } catch (SQLException e) {

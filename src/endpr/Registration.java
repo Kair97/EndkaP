@@ -38,7 +38,7 @@ public class Registration {
                 confirmPassword = sc.nextLine();
             }
 
-            String insertSql = "INSERT INTO users (username, password) VALUES (?, ?)";
+            String insertSql = "INSERT INTO customers (username, password) VALUES (?, ?)";
             try (PreparedStatement pstmt = con.prepareStatement(insertSql)) {
                 pstmt.setString(1, username);
                 pstmt.setString(2, password);
@@ -46,7 +46,7 @@ public class Registration {
                 System.out.println("Registration successful!");
             }
         } catch (SQLException e) {
-            System.err.println("Database error occurred: " + e.getMessage());
+            System.err.println(e.getMessage());
         } finally {
             sc.close();
         }
